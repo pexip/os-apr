@@ -1,3 +1,86 @@
+apr (1.5.0-1) unstable; urgency=low
+
+  * New upstream version
+  * Pull changes from upstream 1.5.x branch up to r1552863 to fix problems
+    on the FreeBSD 10 kernel with accept4() and non-blocking sockets.
+
+ -- Stefan Fritsch <sf@debian.org>  Mon, 30 Dec 2013 16:37:54 +0100
+
+apr (1.4.8-3) unstable; urgency=low
+
+  * Re-add the logic to force use of bash for configure/libtool. Otherwise,
+    if the package is build with /bin/sh -> /bin/bash, the shipped libtool
+    won't work on systems with /bin/sh -> /bin/dash. This got lost in
+    1.4.8-2. Closes: #730196
+
+ -- Stefan Fritsch <sf@debian.org>  Sat, 23 Nov 2013 00:57:30 +0100
+
+apr (1.4.8-2) unstable; urgency=low
+
+  * Merge some changes from Ubuntu's 1.4.8-1ubuntu1:
+    - Fix the confusion between HOST and BUILD variables in rules.
+    - Add a set of autoconf preseeds that are only used when cross-building.
+  * Change cross-building preseeds to only apply on linux.
+  * Cherry-pick fix for O_NONBLOCK configure check from upstream 1.4.x
+    branch.
+  * Switch build system to dh
+    - No longer hard-codes -fstack-protector on unsupported platforms.
+      Closes: #717231
+    - Bump Standards-Version (no additional changes).
+  * Support multi-arch.
+  * Enable sctp support on Linux.
+  * Change apr_rules.mk to not force CFLAGS, etc. to the values used during
+    apr's compilation.
+  * Fix accept4() configure test to work on Hurd. Closes: #715028
+
+ -- Stefan Fritsch <sf@debian.org>  Wed, 06 Nov 2013 19:37:05 +0100
+
+apr (1.4.8-1) unstable; urgency=low
+
+  * New upstream release
+  * Remove the test debug output added in 1.4.6-3. The bug was #673711 in
+    eglibc and has been fixed some time ago.
+
+ -- Stefan Fritsch <sf@debian.org>  Thu, 04 Jul 2013 23:25:10 +0200
+
+apr (1.4.6-4) unstable; urgency=low
+
+  * Make the /dev/shm sanity check during build work if it is a symbolic link.
+  * Remove the ancient ino_t configure sanity test that causes a FTBFS on x32.
+    Closes: #701193
+  * Don't override CFLAGS and LDFLAGS during build. This fixes the debug
+    information being useless. Closes: #703466
+
+ -- Stefan Fritsch <sf@debian.org>  Sat, 11 May 2013 15:06:24 +0200
+
+apr (1.4.6-3) unstable; urgency=low
+
+  * Fix some issues with resolving loopback addresses of a protocol family
+    that is not otherwise configured on a host. Many thanks to Jean-Michel
+    Vourgère and Aurelien Jarno for debugging this.
+    Closes: #500558, #629899 LP: #397393
+  * Pull updates from upstream branch 1.4.x up to r1343251
+  * Add some debug output in order to debug test failures on kfreebsd-i386.
+
+ -- Stefan Fritsch <sf@debian.org>  Mon, 28 May 2012 16:02:12 +0200
+
+apr (1.4.6-2) unstable; urgency=low
+
+  * Enable use of some new APIs. The minimal required linux kernel version is
+    now 2.6.28.
+  * Improvements for Hurd (closes: #656880):
+    - Re-enable test suite
+    - Update build hints, disable non-working shm and flock methods. Thanks to
+      Pino Toscano for the patches.
+  * Switch VCS to git.
+  * Switch to source format 3.0, debhelper 9. Thanks to Jari Aalto for the
+    patch. Closes: #664299
+  * Remove sendfile LFS patch that was only necessary for 2.4 kernels.
+  * Fix some lintian warnings (dh_prep, build-indep/build-arch targets).
+  * Bump Standards-Version (no changes).
+
+ -- Stefan Fritsch <sf@debian.org>  Sun, 20 May 2012 21:39:17 +0200
+
 apr (1.4.6-1) unstable; urgency=low
 
   * New upstream release:
