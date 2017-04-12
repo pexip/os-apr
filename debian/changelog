@@ -1,6 +1,7 @@
 apr (1.5.1-3pexip1) pexip; urgency=low
 
-  * New upstream release
+  * Migrate to Jessie
+  * debian/patches/test-port.patch: shift port used by tests
 
  -- John-Mark Bell <jmb@pexip.com>  Tue, 18 Apr 2017 12:55:01 +0100
 
