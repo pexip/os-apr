@@ -75,7 +75,7 @@ SAVE_FILES := configure build/libtool.m4 build/ltmain.sh
 override_dh_auto_configure:
 	mkdir -p $(BUILDDIR)/docs
 	for f in $(SAVE_FILES) ; do [ -e $$f.dr-orig ] || cp -p $$f $$f.dr-orig ; done
-	./buildconf
+	LC_ALL=C ./buildconf
 	# We need to force the use of bash here. Otherwise, if apr is built with
 	# /bin/sh -> /bin/bash, the resulting libtool will not work on systems
 	# where /bin/sh -> /bin/dash.
@@ -105,6 +105,7 @@ endif
 
 override_dh_auto_build:
 	$(MAKE) -j$(NUMJOBS) -C $(BUILDDIR) all dox
+	find debian/build/docs/dox/html -name \*.md5 -delete
 
 #
 # test
@@ -137,6 +138,8 @@ endif
 override_dh_auto_install:
 	dh_auto_install --destdir=debian/tmp
 	perl -p -i -e "s,^dependency_libs=.*,dependency_libs=''," debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/libapr-1.la
+	# Remove hostname to make build reproducible
+	perl -p -i -e 's/Libtool was configured on host.*//' debian/tmp/usr/share/apr-1.0/build/libtool
 	if ! head -n 1 debian/tmp/usr/share/apr-1.0/build/libtool | grep -q /bin/bash ; then \
 		echo ERROR: The built libtool uses /bin/sh instead of /bin/bash ; \
 		exit 1 ; \

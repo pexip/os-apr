@@ -1,3 +1,56 @@
+apr (1.5.2-5pexip1) pexip; urgency=low
+
+  * Migrate to Stretch
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 10 Jul 2018 15:48:48 +0100
+
+apr (1.5.2-5) unstable; urgency=medium
+
+  [ Helmut Grohne ]
+  * Fix FTCBFS: (Closes: #840891)
+    + Annotate Build-Depends: python with :any
+    + cross.patch: Build gen_test_char with the build arch compiler
+
+ -- Stefan Fritsch <sf@debian.org>  Sat, 10 Dec 2016 17:41:09 +0100
+
+apr (1.5.2-4) unstable; urgency=medium
+
+  [ Jean-Michel Vourgère ]
+  * Update Vcs-Browser: address.
+  * d/watch: Check gpg signature of upstream source.
+
+  [ Stefan Fritsch ]
+  * Run buildconf with LC_ALL=C to fix some reproducible build issues.
+  * Bump Standards-Version (no changes)
+
+ -- Stefan Fritsch <sf@debian.org>  Sun, 29 May 2016 15:44:28 +0200
+
+apr (1.5.2-3) unstable; urgency=medium
+
+  * Use flock for apr_file_lock()/_unlock(). This has the advantage that
+    the lock is per FD and not per process. On the other hand, locking over
+    NFS may not work any more for non-Linux kernels. Closes: #752872
+  * Add debug output for strange test failure on reproducible.debian.net.
+
+ -- Stefan Fritsch <sf@debian.org>  Thu, 20 Aug 2015 13:47:59 +0200
+
+apr (1.5.2-2) unstable; urgency=medium
+
+  * Remove the buildhost's hostname from libtool for reproducible builds.
+  * Fix ipv6 address comparison in apr_mcast_interface/apr_mcast_join.
+    Thanks to Andre Naujoks <nautsch2 gmail com> for the patch.
+    Closes: #759534
+
+ -- Stefan Fritsch <sf@debian.org>  Mon, 17 Aug 2015 18:49:41 +0200
+
+apr (1.5.2-1) unstable; urgency=medium
+
+  * New upstream version
+  * Don't ship useless *.md5 doxygen files.
+  * Bump Standards-Version (no changes)
+
+ -- Stefan Fritsch <sf@debian.org>  Sat, 15 Aug 2015 16:39:04 +0200
+
 apr (1.5.1-3pexip1) pexip; urgency=low
 
   * Migrate to Jessie
