@@ -2,11 +2,11 @@ Source: apr
 Section: libs
 Priority: optional
 Maintainer: Debian Apache Maintainers <debian-apache@lists.debian.org>
-Uploaders: Peter Samuelson <peter@p12n.org>, Stefan Fritsch <sf@debian.org>
-Build-Depends: debhelper (>= 9), autoconf, autotools-dev, mawk, uuid-dev, doxygen, netbase, net-tools, libtool (>= 2), python:any, libsctp-dev [linux-any]
-Standards-Version: 3.9.8
-Vcs-Browser: https://anonscm.debian.org/cgit/pkg-apache/apr.git
-Vcs-Git: git://anonscm.debian.org/pkg-apache/apr.git
+Uploaders: Stefan Fritsch <sf@debian.org>
+Build-Depends: debhelper (>= 11), autoconf, mawk, uuid-dev, doxygen, netbase, net-tools, libtool (>= 2), python:any, libsctp-dev [linux-any]
+Standards-Version: 4.2.1
+Vcs-Browser: https://salsa.debian.org/apache-team/apr
+Vcs-Git: https://salsa.debian.org/apache-team/apr.git
 Homepage: http://apr.apache.org/
 
 Package: libapr1
@@ -36,7 +36,6 @@ Description: Apache Portable Runtime Library - Development Headers
 Package: libapr1-dbg
 Architecture: any
 Section: debug
-Priority: extra
 Multi-Arch: same
 Depends: libapr1 (= ${binary:Version}), ${misc:Depends}
 Description: Apache Portable Runtime Library - Debugging Symbols
