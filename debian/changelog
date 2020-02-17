@@ -1,3 +1,47 @@
+apr (1.6.5-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump Standards-Version (no changes).
+
+ -- Stefan Fritsch <sf@debian.org>  Mon, 19 Nov 2018 13:28:03 +0100
+
+apr (1.6.3-3) unstable; urgency=medium
+
+  * Backport fix for undefined behavior in teststr from upstream 1.7.
+    Fixes FTBFS with gcc 8. Closes: #897705
+  * Migrate from alioth to salsa
+
+ -- Stefan Fritsch <sf@debian.org>  Tue, 17 Jul 2018 21:17:00 +0200
+
+apr (1.6.3-2) unstable; urgency=medium
+
+  * Avoid empty build target, fixes FTBFS. Thanks to Niels Thykier for the
+    patch. Closes: #888593
+  * Drop deprecated autotools-dev sequence. Thanks to Niels Thykier for the
+    patch.
+  * Switch to debhelper compat level 11 and use dh_autoreconf.
+  * Include NOTICE file in packages, as required by license.
+  * Bump Standards-Version (no changes).
+
+ -- Stefan Fritsch <sf@debian.org>  Sun, 25 Feb 2018 16:35:41 +0100
+
+apr (1.6.3-1) unstable; urgency=medium
+
+  * New upstream version
+    - Fixes CVE-2017-12613: Out-of-bounds array deref in apr_time_exp*
+      functions. Closes: #879708
+  * Replace obsolete priority extra with optional.
+
+ -- Stefan Fritsch <sf@debian.org>  Mon, 06 Nov 2017 20:07:42 +0100
+
+apr (1.6.2-1) unstable; urgency=medium
+
+  * New upstream version
+  * Remove Peter Samuelson from uploaders. Thanks for your work in the past.
+    Closes: #852222
+
+ -- Stefan Fritsch <sf@debian.org>  Fri, 04 Aug 2017 16:39:16 +0200
+
 apr (1.5.2-5pexip1) pexip; urgency=low
 
   * Migrate to Stretch
