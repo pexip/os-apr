@@ -1,3 +1,10 @@
+apr (1.6.5-1pexip1) pexip; urgency=low
+
+  * Migrate to Stretch
+  * Refresh test-port.patch
+
+ -- Vincent Sanders <vince@pexip.com>  Sun, 1 Mar 2020 22:23:48 +0100
+
 apr (1.6.5-1) unstable; urgency=medium
 
   * New upstream release

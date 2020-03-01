@@ -1,8 +1,6 @@
-diff --git a/test/sendfile.c b/test/sendfile.c
-index f92b305..63d2534 100644
 --- a/test/sendfile.c
 +++ b/test/sendfile.c
-@@ -50,7 +50,7 @@ int main(void)
+@@ -50,7 +50,7 @@
  #define TRL3_LEN       90000
  #define TRL3_CHAR      '@'
  
@@ -11,29 +9,25 @@ index f92b305..63d2534 100644
  
  #define TESTFILE       "testsf.dat"
  
-diff --git a/test/sockchild.c b/test/sockchild.c
-index 0777e1e..dcb0c7b 100644
 --- a/test/sockchild.c
 +++ b/test/sockchild.c
-@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
+@@ -34,7 +34,7 @@
          exit(-1);
      }
  
--    rv = apr_sockaddr_info_get(&remote_sa, "127.0.0.1", APR_UNSPEC, 8021, 0, p);
-+    rv = apr_sockaddr_info_get(&remote_sa, "127.0.0.1", APR_UNSPEC, 8023, 0, p);
+-    rv = apr_sockaddr_info_get(&remote_sa, argv[2], APR_UNSPEC, 8021, 0, p);
++    rv = apr_sockaddr_info_get(&remote_sa, argv[2], APR_UNSPEC, 8023, 0, p);
      if (rv != APR_SUCCESS) {
          exit(-1);
      }
-diff --git a/test/testsock.c b/test/testsock.c
-index 6a6b7ec..0456d9e 100644
 --- a/test/testsock.c
 +++ b/test/testsock.c
-@@ -117,7 +117,7 @@ static apr_socket_t *setup_socket(abts_case *tc)
+@@ -173,7 +173,7 @@
      apr_sockaddr_t *sa;
      apr_socket_t *sock;
  
--    rv = apr_sockaddr_info_get(&sa, "127.0.0.1", APR_INET, 8021, 0, p);
-+    rv = apr_sockaddr_info_get(&sa, "127.0.0.1", APR_INET, 8023, 0, p);
+-    rv = apr_sockaddr_info_get(&sa, socket_name, socket_type, 8021, 0, p);
++    rv = apr_sockaddr_info_get(&sa, socket_name, socket_type, 8023, 0, p);
      APR_ASSERT_SUCCESS(tc, "Problem generating sockaddr", rv);
  
      rv = apr_socket_create(&sock, sa->family, SOCK_STREAM, APR_PROTO_TCP, p);
