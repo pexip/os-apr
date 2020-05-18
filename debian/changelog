@@ -1,6 +1,6 @@
-apr (1.6.5-1pexip1) pexip; urgency=low
+apr (1.6.5-1+b1pexip1) pexip; urgency=low
 
-  * Migrate to Stretch
+  * Migrate to Buster
   * Refresh test-port.patch
 
  -- Vincent Sanders <vince@pexip.com>  Sun, 1 Mar 2020 22:23:48 +0100
