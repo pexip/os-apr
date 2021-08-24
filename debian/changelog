@@ -1,3 +1,63 @@
+apr (1.7.0-6+deb11u1) bullseye; urgency=medium
+
+  * Team upload
+
+  [ Salvatore Bonaccorso ]
+  * Out-of-bounds array dereference in apr_time_exp*() functions
+    (CVE-2021-35940) (Closes: #992789)
+
+ -- Yadd <yadd@debian.org>  Tue, 24 Aug 2021 09:18:26 +0200
+
+apr (1.7.0-6) unstable; urgency=medium
+
+  [ John Paul Adrian Glaubitz ]
+  * Fix atomics for m68k, sh3 and sh4. Closes: #978018
+
+ -- Stefan Fritsch <sf@debian.org>  Sun, 27 Dec 2020 17:28:47 +0100
+
+apr (1.7.0-4) unstable; urgency=low
+
+  [ Debian Janitor ]
+  * Trim trailing whitespace.
+  * Transition to automatic debug package (from: libapr1-dbg).
+  * Use secure URI in Homepage field.
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+
+  [ Stefan Fritsch ]
+  * Fix apr libtool on unmerged /usr. Thanks to Vagrant Cascadian for
+    the patch. Closes: #916829
+  * Bump Standards-Version (no changes).
+
+ -- Stefan Fritsch <sf@debian.org>  Sat, 21 Nov 2020 21:06:09 +0100
+
+apr (1.7.0-3) unstable; urgency=medium
+
+  * Bump Standards-Version (no changes).
+  * Fixes for 64bit atomics work-around:
+    - call the required initialization
+    - don't use on mips64el
+    - use on powerpc
+
+ -- Stefan Fritsch <sf@debian.org>  Sun, 30 Aug 2020 21:15:21 +0200
+
+apr (1.7.0-2) unstable; urgency=medium
+
+  * Use generic 64bit atomics on mipsel as gcc lacks the 64bit built-ins.
+    Fixes FTBFS on mipsel.
+
+ -- Stefan Fritsch <sf@debian.org>  Sat, 29 Aug 2020 18:13:56 +0200
+
+apr (1.7.0-1) unstable; urgency=medium
+
+  * New upstream release.
+    The minimal required linux kernel version is now 3.17.
+  * Switch build-depends to python3. Closes: #936128, #969065
+    Make apr1-dev depend on python3, so that apr-util does not have to.
+    See #936129
+
+ -- Stefan Fritsch <sf@debian.org>  Sat, 29 Aug 2020 11:42:28 +0200
+
 apr (1.6.5-1) unstable; urgency=medium
 
   * New upstream release
@@ -222,7 +282,7 @@ apr (1.4.5-1) unstable; urgency=high
     - Fix regression introduced by fix for CVE-2011-0419: apr_fnmatch may
       consume 100% CPU. CVE-2011-1928. Closes: #627182
   * Fix allocator using mmap crashing on non-4k-page platforms. Thanks to
-    Lifeng Sun for the patch. Closes: #627532 
+    Lifeng Sun for the patch. Closes: #627532
 
  -- Stefan Fritsch <sf@debian.org>  Sat, 21 May 2011 20:49:17 +0200
 
@@ -350,7 +410,7 @@ apr (1.3.4-1) unstable; urgency=low
     - define _GNU_SOURCE earlier
     - disable tests on hurd for now
     - Deactivate missing multicast support on Hurd (by removing
-      HAVE_STRUCT_IPMREQ manually). 
+      HAVE_STRUCT_IPMREQ manually).
   * Omit spurious libs from apr-1-config --libs output (closes: #463399)
 
  -- Stefan Fritsch <sf@debian.org>  Sun, 07 Jun 2009 21:15:32 +0200
