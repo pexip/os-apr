@@ -9,7 +9,7 @@ Standards-Version: 4.2.1
 Vcs-Browser: https://salsa.debian.org/apache-team/apr
 Vcs-Git: https://salsa.debian.org/apache-team/apr.git
 Homepage: http://apr.apache.org/
-XS-Pexip-Upstream: http://ftp.debian.org/debian/ buster
+XS-Pexip-Upstream: http://deb.debian.org/debian/ bullseye
 
 Package: libapr1
 Architecture: any
